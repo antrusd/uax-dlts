@@ -73,3 +73,9 @@ Rebuilding the live ISO must be done using a `debian:12-slim` Docker container w
     ```
     docker cp iso-build:/opt/live/live-image-amd64.hybrid.iso ./
     ```
+
+10. Test the ISO using qemu
+
+    ```
+    qemu -cdrom debian-bookworm-live.20241009-1.amd64.iso -m 1g
+    ```
