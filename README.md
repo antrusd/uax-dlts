@@ -62,16 +62,16 @@ Rebuilding the live ISO must be done using a `debian:12-slim` Docker container w
     lb build
     ```
 
-8. If you want to edit some files and need to rebuild, run `lb clean` and return to step 6:
-
-    ```
-    lb clean
-    ```
-
-9. The ISO can be found at `/opt/live/live-image-amd64.hybrid.iso`. To copy it from the container, run the following command from another terminal:
+8. The ISO can be found at `/opt/live/live-image-amd64.hybrid.iso`. To copy it from the container, run the following command from another terminal:
 
     ```
     docker cp iso-build:/opt/live/live-image-amd64.hybrid.iso ./
+    ```
+
+9. If you want to edit some files and need to rebuild, run `lb clean` and return to step 6:
+
+    ```
+    lb clean
     ```
 
 10. Test the ISO using qemu
