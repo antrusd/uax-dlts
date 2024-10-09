@@ -2,7 +2,7 @@
 
 set -e
 
-# download and extract golang package
+# download and install nodejs package
 curl -sL https://deb.nodesource.com/node_20.x/pool/main/n/nodejs/nodejs_20.13.1-1nodesource1_amd64.deb -o /tmp/nodejs.deb \
 	&& apt --yes install /tmp/nodejs.deb \
 	&& rm -f /tmp/nodejs.deb
