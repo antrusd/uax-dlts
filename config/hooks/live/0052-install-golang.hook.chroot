@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+# download and extract golang package
+curl -sL https://go.dev/dl/go1.23.2.linux-amd64.tar.gz | tar zxv -C /opt \
+	&& chown -R 0:0 /opt/go
+
+# save environment variables
+cat <<EOF>> /etc/profile.d/golang.sh
+if [ -d /opt/go/bin ]; then
+	export GOROOT=/opt/go
+	export PATH=\$GOROOT/bin:\$PATH
+fi
+EOF

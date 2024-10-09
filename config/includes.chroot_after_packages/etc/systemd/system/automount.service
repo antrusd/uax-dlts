@@ -1,0 +1,11 @@
+[Unit]
+Description=automount known partitions on boot
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/automount
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
+

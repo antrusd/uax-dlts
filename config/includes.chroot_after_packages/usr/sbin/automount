@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+{
+    blkid -t TYPE=xfs  -o device
+    blkid -t TYPE=ext2 -o device
+    blkid -t TYPE=ext3 -o device
+    blkid -t TYPE=ext4 -o device
+    blkid -t TYPE=vfat -o device
+} | while read device; do
+   udisksctl mount --block-device "$device" --no-user-interaction
+done
+

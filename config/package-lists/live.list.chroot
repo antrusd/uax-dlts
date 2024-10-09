@@ -1,0 +1,42 @@
+live-boot
+live-config
+live-config-systemd
+systemd-sysv
+user-setup
+sudo
+ifupdown
+isc-dhcp-client
+network-manager
+wireless-regdb
+wireless-tools
+wpasupplicant
+udisks2
+bash-completion
+
+# apache2
+apache2
+
+# git
+git
+curl
+
+# nodejs dependencies
+python3
+python3-virtualenv
+ca-certificates
+
+# golang dependencies
+build-essential
+
+# firmware
+firmware-ath9k-htc
+firmware-atheros
+firmware-bnx2
+firmware-bnx2x
+firmware-brcm80211
+firmware-iwlwifi
+firmware-linux-free
+firmware-misc-nonfree
+firmware-realtek
+amd64-microcode
+intel-microcode
