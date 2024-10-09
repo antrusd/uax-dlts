@@ -71,5 +71,5 @@ Rebuilding the live ISO must be done using a `debian:12-slim` Docker container w
 9. The ISO can be found at `/opt/live/live-image-amd64.hybrid.iso`. To copy it from the container, run the following command from another terminal:
 
     ```
-    docker cp live-build:/opt/live/live-image-amd64.hybrid.iso ./
+    docker cp iso-build:/opt/live/live-image-amd64.hybrid.iso ./
     ```
