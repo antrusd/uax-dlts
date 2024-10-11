@@ -78,4 +78,4 @@ Rebuilding the live ISO must be done using a `debian:12-slim` Docker container w
 
 ## Video Showcase
 
-[![YouTube](http://i.ytimg.com/vi/AeXE0ku40xo/hqdefault.jpg)](https://www.youtube.com/watch?v=AeXE0ku40xo)
+[![UAX DLTS GNU/Linux - ISO Rebuild](https://img.youtube.com/vi/AeXE0ku40xo/default.jpg)](https://youtu.be/AeXE0ku40xo)
