@@ -64,14 +64,18 @@ Rebuilding the live ISO must be done using a `debian:12-slim` Docker container w
     lb build
     ```
 
-8. The ISO can be found at `/opt/live/live-image-amd64.hybrid.iso`. To copy the ISO to your local, run the following command from another terminal:
+8. The ISO can be found at `/opt/live/uax-dlts/live-image-amd64.hybrid.iso`. To copy the ISO to your local, run the following command from another terminal:
 
     ```
-    docker cp iso-build:/opt/live/live-image-amd64.hybrid.iso ./
+    docker cp iso-build:/opt/live/uax-dlts/live-image-amd64.hybrid.iso ./
     ```
 
 9. Test the ISO using qemu
 
     ```
-    qemu -cdrom live-image-amd64.hybrid.iso -m 1g
+    qemu-system-x86_64 -cdrom live-image-amd64.hybrid.iso -m 1g
     ```
+
+## Video Showcase
+
+[![YouTube](http://i.ytimg.com/vi/AeXE0ku40xo/hqdefault.jpg)](https://www.youtube.com/watch?v=AeXE0ku40xo)
