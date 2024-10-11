@@ -14,7 +14,7 @@ Rebuilding the live ISO must be done using a `debian:12-slim` Docker container w
 
     ```
     apt update
-    apt install --no-install-recommends live-build live-config git cpio
+    apt install --no-install-recommends live-build live-config git cpio ca-certificates
     ```
 
 3. Create a workspace directory, e.g., `/opt/live`:
@@ -28,6 +28,7 @@ Rebuilding the live ISO must be done using a `debian:12-slim` Docker container w
 
     ```
     git clone https://github.com/antrusd/uax-dlts.git
+    cd uax-dlts
     ```
 
 5. Make some minor adjustments since the `Live system` boot menu label is not configurable:
@@ -37,10 +38,11 @@ Rebuilding the live ISO must be done using a `debian:12-slim` Docker container w
     sed -i 's|Live system |UAX DLTS v0.1 GNU/Linux |g' /usr/share/live/build/bootloaders/syslinux_common/live.cfg.in
     ```
 
-6. Initialize the live config. This step needs to be repeated each time you want to run the build. You can set `--cache` to `true` to cache some files, but the caching process may take a long time, so results may vary.
+6. Initialize the live config. At this stage, you can customize anything inside the `config` directory based on Debian Live Manual [here](https://live-team.pages.debian.net/live-manual/html/live-manual/customization-overview.en.html). The following command needs to be repeated each time you want to run/re-run the build. You can set `--cache` to `true` to cache some files, but the caching process may take a long time, so your results may vary.
 
     ```
-    lb config   --mirror-bootstrap http://deb.debian.org/debian/ \
+    lb clean && lb config \
+                --mirror-bootstrap http://deb.debian.org/debian/ \
                 --mirror-binary http://deb.debian.org/debian/ \
                 --mirror-binary-security http://deb.debian.org/debian-security/ \
                 --distribution bookworm \
@@ -62,19 +64,13 @@ Rebuilding the live ISO must be done using a `debian:12-slim` Docker container w
     lb build
     ```
 
-8. The ISO can be found at `/opt/live/live-image-amd64.hybrid.iso`. To copy it from the container, run the following command from another terminal:
+8. The ISO can be found at `/opt/live/live-image-amd64.hybrid.iso`. To copy the ISO to your local, run the following command from another terminal:
 
     ```
     docker cp iso-build:/opt/live/live-image-amd64.hybrid.iso ./
     ```
 
-9. If you want to edit some files and need to rebuild, run `lb clean` and return to step 6:
-
-    ```
-    lb clean
-    ```
-
-10. Test the ISO using qemu
+9. Test the ISO using qemu
 
     ```
     qemu -cdrom live-image-amd64.hybrid.iso -m 1g
