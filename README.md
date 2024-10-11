@@ -14,7 +14,7 @@ Rebuilding the live ISO must be done using a `debian:12-slim` Docker container w
 
     ```
     apt update
-    apt install --no-install-recommends live-build live-config git cpio ca-certificates
+    apt install --no-install-recommends live-build live-config git cpio ca-certificates busybox
     ```
 
 3. Create a workspace directory, e.g., `/opt/live`:
